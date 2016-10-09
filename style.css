@@ -1,0 +1,57 @@
+html, body { 
+    padding:0; margin:0; 
+    font-family: 'Coming Soon', cursive;
+      box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.Container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 50px;
+}
+
+.Day, .Night {
+    padding: 50px 0;
+}
+
+.Night {
+    background-color: #333;
+    color: #fff;
+}
+
+.Title {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.List {
+    margin-left: -40px;
+}
+
+.Item {
+    padding: 5px;
+}
+
+.Input {
+    width: 100%;
+    font-family: 'Coming Soon', cursive;
+    border: none;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.Night .Input {
+    border-color: #fff;
+    color: #fff;
+}
+
+.Input:focus {
+    outline: none;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Five Minute Journal</title>
+        <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function pad(nr) {
+                var str = "00" + nr;
+                return str.slice(-2);
+            }
+            function getDate() {
+                var today = new Date();
+                return "" + today.getFullYear() + pad(today.getMonth()) + pad(today.getDate());
+            }
+            var data = null;
+            if (localStorage.hasOwnProperty(getDate())) {
+                data = JSON.parse(localStorage.getItem(getDate()));
+            }
+            var app = Elm.Main.fullscreen(data);
+            app.ports.save.subscribe(function(model) {
+                var string = JSON.stringify(model);
+                save(getDate(), string);
+            });
+            var timer = null;
+            function save(key, value) {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    console.log('saving');
+                    localStorage.setItem(key, value);
+                }, 500);
+            }
+        </script>
+    </body>
+</html>
